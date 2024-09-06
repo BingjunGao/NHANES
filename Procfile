@@ -1,1 +1,1 @@
-web: gunicorn dash_app:app
+web: python Flask.py
