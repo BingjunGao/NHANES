@@ -1,8 +1,16 @@
 from flask import Flask, request, jsonify # type: ignore
 import joblib
 
-# 加载模型
-model = joblib.load('E:\\Rprojects\\MRCH\\model.pkl')
+import joblib
+import os
+
+# 获取当前文件所在的目录路径
+current_dir = os.path.dirname(__file__)
+
+# 加载模型，使用相对路径
+model_path = os.path.join(current_dir, 'model.pkl')
+model = joblib.load(model_path)
+
 
 app = Flask(__name__)
 
