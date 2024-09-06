@@ -1,7 +1,5 @@
 from flask import Flask, request, jsonify # type: ignore
 import joblib
-
-import joblib
 import os
 
 # 获取当前文件所在的目录路径
@@ -10,7 +8,6 @@ current_dir = os.path.dirname(__file__)
 # 加载模型，使用相对路径
 model_path = os.path.join(current_dir, 'model.pkl')
 model = joblib.load(model_path)
-
 
 app = Flask(__name__)
 
@@ -37,5 +34,5 @@ def predict():
     # 返回预测结果
     return jsonify({'prediction': prediction.tolist()})
 
-if __name__ == '__main__':
-    app.run(debug=True)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
